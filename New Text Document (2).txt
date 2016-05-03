@@ -1,0 +1,26 @@
+[TestNG] Running:
+  C:\Users\Admin\AppData\Local\Temp\testng-eclipse-736809603\testng-customsuite.xml
+
+Starting ChromeDriver 2.20.353145 (343b531d31eeb933ec778dbcf7081628a1396067) on port 23171
+Only local connections are allowed.
+@BeforeTest in Test2 class
+@Test in Test2 class
+PASSED: test2
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@626b2d4a: 19 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@73a8dfcc: 46 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@6f2b958e: 20 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 1 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@aec6354: 105 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@c2e1f26: 15 ms

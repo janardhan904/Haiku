@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="My TestNG Project" default="sendMail" basedir=".">
+<property name = "build.dir" value = "${basedir}/build"/>
+<property name = "lib.dir" value = "${basedir}/lib"/>
+<property name = "src.dir" value = "${basedir}/src"/>
+<property name="testng_output.dir" value="${basedir}/testng_output"/>
+
+
+<target name = "setClassPath">
+ <path id = "classpath_jars">
+ <fileset dir = "${lib.dir}" includes = "*.jar"/>
+ </path>
+ <!-- Converting jar collection from given reference into one list, storing the result into a given property separated by a colon -->
+ <pathconvert pathsep= ":" property = "test.classpath" refid = "classpath_jars"/>
+</target>
+ 
+<target name = "LoadTestNG" depends = "setClassPath">
+ <!-- Creating task definition for TestNG task -->
+ <taskdef resource = "testngtasks" classpath = "${test.classpath}"/>
+</target>
+ 
+<target name = "init">
+ <!-- Creating build directory structure used by complie -->
+ <mkdir dir = "${build.dir}"/>
+ <mkdir dir="${basedir}/testng-xslt"/>
+ <mkdir dir="${testng_output.dir}"/>
+</target>
+ 
+  
+<target name = "clean">
+ <echo message = "deleting existing build directory..."/>
+ <delete dir = "${build.dir}"/>
+ <echo message = "deleting existing testng_output directory..."/>
+ <delete dir = "${testng_output.dir}"/>
+ <echo message = "deleting existing testng-xslt results directory..."/>
+ <delete dir="${basedir}/testng-xslt"/>
+ <!-- <delete file = "${basedir}/data.txt"/> -->
+</target>
+
+
+<target name = "compile" depends = "clean,init,setClassPath,LoadTestNG">
+ <echo message = "classpath:${test.classpath}"/>
+ <echo message = "Compiling..."/>
+ <javac destdir = "${build.dir}" srcdir="${src.dir}" classpath="${test.classpath}" debug="true" includeantruntime="true">
+ <compilerarg value="-Xlint:unchecked"/>
+ </javac>
+</target>
+
+ 
+<target name = "run" depends = "compile">
+ <testng classpath = "${test.classpath}:${build.dir}" outputdir="${testng_output.dir}" haltonfailure="false" useDefaultListeners="true">
+ <xmlfileset dir = "." includes = "haing.xml"/>
+ <!-- generate report title -->
+ <sysproperty key="org.uncommons.reportng.title" value="Test Automation"/>
+ <sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+ </testng>
+</target>
+
+
+<target name="report" depends="run">
+        <delete dir="${basedir}/testng-xslt">
+        </delete>
+        <mkdir dir="${basedir}/testng-xslt">
+        </mkdir>
+        <xslt in="${basedir}/test-output/testng-results.xml" style="${basedir}/testng-results.xsl" out="${basedir}/testng-xslt/index.html" processor="SaxonLiaison">
+           
+        	<param expression="${basedir}/testng-xslt/" name="testNgXslt.outputDir" />
+            <param expression="true" name="testNgXslt.sortTestCaseLinks" />
+            <param expression="FAIL,SKIP,PASS,CONF,BY_CLASS" name="testNgXslt.testDetailsFilter" />
+            <param expression="true" name="testNgXslt.showRuntimeTotals" />
+            <classpath refid="classpath_jars">
+            </classpath>
+        </xslt>
+    </target>
+
+
+	<target name="sendMail" depends="report">
+		<mkdir dir="${basedir}/testng-xslt/output">
+		        </mkdir>
+	<!-- Compressing all the output file of XSLT report -->
+		<mail tolist="janardhan.reddy75@gmail.com" from="janardhan.reddy75@gmail.com" subject="Selenium Automation Results" mailhost="smtp.gmail.com" mailport="465" ssl="true" user="janardhan.reddy75@gmail.com" password="thalartrsjanardhan">
+		<message> The automation build has completed successfully. Please find enclosed ReportNG Report</message>
+		
+		<attachments>	
+	<fileset dir="${basedir}/testng-xslt/">
+	<include name="**/*.zip"/>
+	</fileset>
+	</attachments>
+
+	</mail>
+	</target>	
+	
+	
+
+
+</project>

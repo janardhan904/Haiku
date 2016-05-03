@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="59685" started-at="2016-05-02T11:32:24Z" finished-at="2016-05-02T11:33:24Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="59685" started-at="2016-05-02T11:32:24Z" finished-at="2016-05-02T11:33:24Z">
+      <class name="com.test1.tests.LoginTest">
+        <test-method status="PASS" signature="btest()[pri:0, instance:com.test1.tests.LoginTest@75bd9247]" name="btest" is-config="true" duration-ms="16547" started-at="2016-05-02T17:02:24Z" finished-at="2016-05-02T17:02:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- btest -->
+        <test-method status="PASS" signature="Test()[pri:0, instance:com.test1.tests.LoginTest@75bd9247]" name="Test" duration-ms="42554" started-at="2016-05-02T17:02:41Z" finished-at="2016-05-02T17:03:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test -->
+        <test-method status="PASS" signature="Atest()[pri:0, instance:com.test1.tests.LoginTest@75bd9247]" name="Atest" is-config="true" duration-ms="578" started-at="2016-05-02T17:03:23Z" finished-at="2016-05-02T17:03:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Atest -->
+      </class> <!-- com.test1.tests.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
