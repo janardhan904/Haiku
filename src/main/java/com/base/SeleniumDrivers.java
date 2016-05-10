@@ -18,7 +18,7 @@ static WebDriver driver;
 	{
 		if(browser.equalsIgnoreCase("chrome"))
 		{
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\workspace1\\Haiku\\drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		return driver;
@@ -26,7 +26,8 @@ static WebDriver driver;
 		else if(browser.equalsIgnoreCase("firefox"))
 		{
 			ProfilesIni p=new ProfilesIni();
-			FirefoxProfile fp=p.getProfile("Sel_Pro");
+			FirefoxProfile fp=p.getProfile("default");
+			System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
 			driver = new FirefoxDriver(fp);
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
@@ -34,7 +35,7 @@ static WebDriver driver;
 		}
 		else if (browser.equalsIgnoreCase("ie"))
 		{
-			System.setProperty("webdriver.ie.driver", "C:\\Users\\Admin\\workspace1\\Haiku\\drivers\\IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", "./drivers/IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 			driver.manage().window().maximize();
 			return driver;

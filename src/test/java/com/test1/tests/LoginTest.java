@@ -46,7 +46,7 @@ public class LoginTest{
 			
 			//searchpage.navigateToSearchPage();
 			//searchpage.searchName(Excel_data.test());
-			helppage.navigateToHelp();
+			//helppage.navigateToHelp();
 
 	}
 	@AfterTest
