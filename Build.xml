@@ -74,10 +74,10 @@
     </target>
 
 
-	<target name="sendMail" depends="report">
+	<!-- <target name="sendMail" depends="report">
 		<mkdir dir="${basedir}/testng-xslt/output">
 		        </mkdir>
-	<!-- Compressing all the output file of XSLT report -->
+	 Compressing all the output file of XSLT report 
 		<mail tolist="janardhan.reddy75@gmail.com" from="janardhan.reddy75@gmail.com" subject="Selenium Automation Results" mailhost="smtp.gmail.com" mailport="465" ssl="true" user="janardhan.reddy75@gmail.com" password="thalartrsjanardhan">
 		<message> The automation build has completed successfully. Please find enclosed ReportNG Report</message>
 		
@@ -88,7 +88,7 @@
 	</attachments>
 
 	</mail>
-	</target>	
+	</target>	-->
 	
 	
 

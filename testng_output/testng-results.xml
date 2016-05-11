@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="HaikuSuite" duration-ms="52520" started-at="2016-04-22T12:40:39Z" finished-at="2016-04-22T12:41:32Z">
+  <suite name="HaikuSuite" duration-ms="30042" started-at="2016-05-11T12:59:20Z" finished-at="2016-05-11T12:59:50Z">
     <groups>
     </groups>
-    <test name="test1" duration-ms="52520" started-at="2016-04-22T12:40:39Z" finished-at="2016-04-22T12:41:32Z">
+    <test name="test1" duration-ms="30042" started-at="2016-05-11T12:59:20Z" finished-at="2016-05-11T12:59:50Z">
       <class name="com.test1.tests.LoginTest">
-        <test-method status="PASS" signature="btest()[pri:0, instance:com.test1.tests.LoginTest@1b0b85b8]" name="btest" is-config="true" duration-ms="17379" started-at="2016-04-22T18:10:39Z" finished-at="2016-04-22T18:10:56Z">
+        <test-method status="PASS" signature="btest()[pri:0, instance:com.test1.tests.LoginTest@5315b42e]" name="btest" is-config="true" duration-ms="15876" started-at="2016-05-11T18:29:20Z" finished-at="2016-05-11T18:29:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- btest -->
-        <test-method status="PASS" signature="Test()[pri:0, instance:com.test1.tests.LoginTest@1b0b85b8]" name="Test" duration-ms="34013" started-at="2016-04-22T18:10:56Z" finished-at="2016-04-22T18:11:30Z">
+        <test-method status="PASS" signature="Test()[pri:0, instance:com.test1.tests.LoginTest@5315b42e]" name="Test" duration-ms="12921" started-at="2016-05-11T18:29:36Z" finished-at="2016-05-11T18:29:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test -->
-        <test-method status="PASS" signature="Atest()[pri:0, instance:com.test1.tests.LoginTest@1b0b85b8]" name="Atest" is-config="true" duration-ms="1123" started-at="2016-04-22T18:11:30Z" finished-at="2016-04-22T18:11:32Z">
+        <test-method status="PASS" signature="Atest()[pri:0, instance:com.test1.tests.LoginTest@5315b42e]" name="Atest" is-config="true" duration-ms="1223" started-at="2016-05-11T18:29:49Z" finished-at="2016-05-11T18:29:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Atest -->
