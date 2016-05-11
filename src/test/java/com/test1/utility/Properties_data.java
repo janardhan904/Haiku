@@ -12,7 +12,7 @@ public class Properties_data {
 	public static String properties(String keyword) throws Exception
 	{
 	
-	InputStream objfile = new FileInputStream("C:\\Users\\Admin\\workspace1\\Haiku\\TestConfig.properties"); 
+	InputStream objfile = new FileInputStream(".\\TestConfig.properties"); 
 	p.load(objfile);
 	
 		if(keyword.equalsIgnoreCase("baseURL"))

@@ -3,6 +3,7 @@ package com.test1.ActionsLogs;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.InvalidSelectorException;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,19 +13,26 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 
 
 
+
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.google.common.base.Function;
+import com.test1.pageconstants.ConstantsHome;
 
 public class ActionsLogs {
 	
 	public static final int STALENESS_MAX_RETRY_COUNT=2;
 	static int stale_count=1;
-	public static Logger log = Logger.getLogger(ActionsLogs.class.getName());
+	public static Logger log = Logger.getLogger("ActionsLogs.class");
+	
 	
 	private static final String getLocatorDetails(By locator){
 		String[] tokens=locator.toString().split(":");
@@ -37,6 +45,27 @@ public class ActionsLogs {
 		element.click();
 		log.info("Element is successfully clicked..... ");
 	}
+	public static void doubleClick(WebDriver driver, By locator)
+	{
+		log.info("Trying to perform double click on element...");
+		WebElement element=ActionsLogs.getWebElement(driver, locator);
+		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(50, TimeUnit.SECONDS)
+				.pollingEvery(5, TimeUnit.SECONDS)
+				.ignoring(NoSuchElementException.class);
+
+				element= wait.until(new Function<WebDriver, WebElement>() {
+					public WebElement apply(WebDriver driver) {
+						return driver.findElement(locator);
+					}
+				});
+		
+		Actions act=new Actions(driver);
+		act.doubleClick(element).build().perform();
+		log.info("Element is successfully double cliked...");
+	}
+	
+	
 	public static WebElement getWebElement(WebDriver driver, final By locator){
 		WebElement element=null;
 		try{

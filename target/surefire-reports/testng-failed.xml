@@ -3,11 +3,15 @@
 <suite verbose="0" name="Failed suite [Command line suite]">
   <test name="Command line test(failed)">
     <classes>
+      <class name="com.test1.dummy.TestExcel">
+        <methods>
+          <include name="test"/>
+        </methods>
+      </class> <!-- com.test1.dummy.TestExcel -->
       <class name="com.test1.tests.LoginTest">
         <methods>
           <include name="Test"/>
           <include name="btest"/>
-          <include name="Atest"/>
         </methods>
       </class> <!-- com.test1.tests.LoginTest -->
     </classes>

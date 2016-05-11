@@ -18,7 +18,7 @@ static WebDriver driver;
 	{
 		if(browser.equalsIgnoreCase("chrome"))
 		{
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\workspace1\\Haiku\\drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		return driver;
@@ -33,8 +33,8 @@ static WebDriver driver;
 			return driver;
 		}
 		else if (browser.equalsIgnoreCase("ie"))
-		{
-			System.setProperty("webdriver.ie.driver", "C:\\Users\\Admin\\workspace1\\Haiku\\drivers\\IEDriverServer.exe");
+		{	
+			System.setProperty("webdriver.ie.driver", ".\\drivers\\IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 			driver.manage().window().maximize();
 			return driver;

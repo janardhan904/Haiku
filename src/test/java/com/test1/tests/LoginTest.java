@@ -1,5 +1,6 @@
 package com.test1.tests;
 
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -14,9 +15,6 @@ import com.test1.pages.TreesPage;
 import com.test1.utility.Excel_data;
 import com.test1.utility.Properties_data;
 
-
-
-
 public class LoginTest{
 	WebDriver driver;
 	LoginPage Loginpage;
@@ -26,7 +24,7 @@ public class LoginTest{
 	@BeforeTest
 	public void btest() throws Exception
 	{
-		
+		PropertyConfigurator.configure(".//log4j.properties");
 		driver=SeleniumDrivers.DriverD(Properties_data.properties("browser"));
 		driver.get(Properties_data.properties("baseurl"));
 		Loginpage=new LoginPage(driver);

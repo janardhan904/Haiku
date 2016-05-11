@@ -29,7 +29,7 @@ public class Excel_data {
 	
 	public  static String test () throws Exception
 	{
-		File src =new File("C:\\Users\\Admin\\workspace1\\Haiku\\TestData\\TestDataWB.xlsx");
+		File src =new File(".\\TestData\\TestDataWB.xlsx");
 		FileInputStream fis=new FileInputStream(src);
 		 workbook=new XSSFWorkbook(fis);
 		 sheet= workbook.getSheetAt(0);
